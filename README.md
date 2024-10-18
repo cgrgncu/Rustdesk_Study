@@ -24,3 +24,11 @@
   # 21117 TCP relay
   # 21118/21119 TCP for web socket if you want to run web client
   ```
+
+### Client 1.3.1
++ 下載位置: https://github.com/rustdesk/rustdesk/releases/tag/1.3.1
++ 必要設定: IP KEY 如果有改PORT就要指定
++ 自訂ID:
+  + %AppData%\RustDesk\config\RustDesk.toml for portable
+  + C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml for installed
+  stop all RustDesk.exe first.
