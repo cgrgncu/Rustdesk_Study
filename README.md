@@ -24,6 +24,14 @@
   # 21117 TCP relay
   # 21118/21119 TCP for web socket if you want to run web client
   ```
++ 安裝步驟
+  + 安裝 Conrainer Manager
+  + 開啟 Conrainer Manager
+  + 專案>新增
+    + 專案名稱: rustdesk-server
+    + 路徑: /docker/rustdesk-server  (要先建好/docker/rustdesk-server/data)  
+    + 建立 yaml檔案(參考官方，我改成指定版本1.1.9)
+    + 
 
 ### Client 1.3.1
 + 下載位置: https://github.com/rustdesk/rustdesk/releases/tag/1.3.1
