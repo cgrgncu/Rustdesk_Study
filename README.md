@@ -16,3 +16,11 @@
     + hbbr預設使用port:
       + 21117(tcp)，用途:21117是hbbr用作中繼服務。
       + 21119(tcp)，用途: 21118和21119是為了支持網頁客戶端。如果您不需要網頁客戶端（21118，21119）支持，對應端口可以不開。
+  ```
+  # 21114 TCP for web console, only available in Pro version
+  # 21115 TCP for NAT type test
+  # 21116 TCP TCP hole punching
+  # 21116 UDP heartbeat/ID server
+  # 21117 TCP relay
+  # 21118/21119 TCP for web socket if you want to run web client
+  ```
