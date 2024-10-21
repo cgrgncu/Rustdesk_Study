@@ -40,3 +40,32 @@
   + %AppData%\RustDesk\config\RustDesk.toml for portable
   + C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml for installed
   stop all RustDesk.exe first.
+  ```
+  net stop RustDesk
+  taskkill /im RustDesk /f
+  
+  $nome = (Get-CimInstance -ClassName Win32_ComputerSystem).Name
+  $id = Get-Content C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml | Select -First 1
+  $newId = "id = '$nome'"
+  
+  $filecontent = Get-Content -Path C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml -Raw
+  
+  $filecontent
+  
+  $filecontent.Replace("$id","$newId") | Set-Content -Path C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml                  
+  
+  
+  $pass = "password"
+  $pw = Get-Content C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml | Select -First 1 -Skip 1
+  
+  $newPw = "password = '$pass'"
+  
+  $filecontent = Get-Content -Path C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml -Raw
+  
+  $filecontent
+  
+  $filecontent.Replace("$pw","$newPw") | Set-Content -Path C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml
+  $pw = Get-Content C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\RustDesk\config\RustDesk.toml | Select -First 1 -Skip 1
+  
+  net start RustDesk
+  ```
