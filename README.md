@@ -86,3 +86,8 @@ query user
 ```
 query user | find "console" | findstr /I "使用中 Active" && echo 【狀態確認】：目前有活躍的桌面，可以執行 RustDesk 截圖！ || echo 【狀態確認】：警告！目前無人登入或螢幕已鎖定，截圖將會失敗！
 ```
+
++ 密碼截圖:
+```
+start "" "C:\Program Files\RustDesk\rustdesk.exe" && powershell -NoProfile -Command "Start-Sleep -s 3; Add-Type -AssemblyName System.Windows.Forms, System.Drawing; $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $bmp = New-Object System.Drawing.Bitmap($b.Width, $b.Height); $g = [System.Drawing.Graphics]::FromImage($bmp); $g.CopyFromScreen($b.X, $b.Y, 0, 0, $b.Size); $bmp.Save('C:\R2MS_Lite_Smart_Scheduler\Local\rustdesk_auto.png', [System.Drawing.Imaging.ImageFormat]::Png); $g.Dispose(); $bmp.Dispose();" && taskkill /FI "WINDOWTITLE eq RustDesk"
+```
