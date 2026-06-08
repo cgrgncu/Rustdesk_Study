@@ -69,3 +69,11 @@
   
   net start RustDesk
   ```
+
+
+
+### 特殊方案
++ 喚醒GUI
+```
+"C:\Program Files\RustDesk\rustdesk.exe"
+```
