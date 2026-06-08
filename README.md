@@ -77,3 +77,12 @@
 ```
 "C:\Program Files\RustDesk\rustdesk.exe"
 ```
+
++ 檢查是否WINDOWS在登入狀態
+```
+query user
+```
+
+```
+query user | find "console" | findstr /I "使用中 Active" && echo 【狀態確認】：目前有活躍的桌面，可以執行 RustDesk 截圖！ || echo 【狀態確認】：警告！目前無人登入或螢幕已鎖定，截圖將會失敗！
+```
